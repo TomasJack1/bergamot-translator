@@ -123,6 +123,12 @@ jobs:
 
       shell: cmd
 
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4  # 推荐使用最新版本
+      with:
+        name: windows-binaries
+        path: build/app/Release
+        
     - name: ccache epilog
       run: |-
         ${{github.workspace}}\\ccache.exe -sv # Print current cache stats
